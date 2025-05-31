@@ -1,6 +1,4 @@
-import sys
-import json
-import ast
+import sys, ast, json
 
 from data_extraction_agent import init_llm, run_extraction_prompt, run_web_request, run_summary_prompt
 
