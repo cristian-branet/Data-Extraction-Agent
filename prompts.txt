@@ -1,0 +1,23 @@
+// Web product scraper
+prompt = (
+    "You are a web scraping assistant. Your task is to extract product information from the following HTML content. "
+    "The content is from a webpage that lists products. Extract the product names, prices, and descriptions. "
+    "Return ONLY the extracted information in a valid JSON array of objects, with each object containing keys: "
+    "'name', 'price', and 'description'. Do not include any explanations, markdown, or code blocks. "
+    "Parse the content by yourself and do not use any scripts or code.\n\n"
+    "Here is the HTML content:\n\n"
+    f"{html_content}\n\n"
+)
+
+// People info
+prompt = (
+"You are a web scraping assistant. Your task is to extract people information from the following HTML content."
+"The content is from a webpage that lists people. Extract the names, descriptions and whatever information is mentioned about them in addition."
+"Return ONLY the extracted information in a valid JSON array of objects, with each object containing keys: "
+"'name', 'description', and 'additional_info'. Do not include any explanations, markdown, or code blocks."
+"Parse the content by yourself and do not use any scripts or code.\n\n"
+"Search thoroughly until you find people's name."
+"Retrieve every piece of relevant information as it is between the tags"
+"Here is the HTML content:\n\n"
+    f"{html_content}\n\n"
+)
