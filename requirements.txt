@@ -4,3 +4,4 @@ pandas
 openpyxl
 requests
 json
+openai-agents

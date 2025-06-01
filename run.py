@@ -1,6 +1,7 @@
 import sys, ast, json
-
 from data_extraction_agent import init_llm, run_extraction_prompt, run_web_request, run_summary_prompt
+from DEA_v2 import data_extraction_agent, data_summary_agent
+from agents import Runner
 
 OUTPUT_FILE = "output.json"
 
@@ -55,12 +56,13 @@ if __name__ == "__main__":
     )
 
     print("Running prompt...")
-    response = run_extraction_prompt(data_extraction_prompt, client)
+    #response = run_extraction_prompt(data_extraction_prompt, client)
+    response = Runner.run_sync(data_extraction_agent, data_extraction_prompt)
 
     print("Prompt executed successfully.")
 
     # Write data to file
-    parsed_data = ast.literal_eval(response)
+    parsed_data = ast.literal_eval(response.final_output)
 
     with open(OUTPUT_FILE, "w") as file:
         json.dump(parsed_data, file, indent=2)
@@ -91,10 +93,11 @@ if __name__ == "__main__":
     )
 
     print("Running summary prompt...")
+    #response = run_summary_prompt(data_summary_prompt, client)
 
-    response = run_summary_prompt(data_summary_prompt, client)
+    response = Runner.run_sync(data_summary_agent, data_summary_prompt)
 
     print("Summary prompt executed successfully.\n")
 
     # Write response
-    print(response)
+    print(response.final_output)
