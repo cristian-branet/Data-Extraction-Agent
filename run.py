@@ -17,8 +17,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Initialize LLM
-    client = init_llm()
-    print("Initializing LLM...")
+    #client = init_llm()
+    #print("Initializing LLM...")
 
     # Fetch HTML content
     html_content = run_web_request(url)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         "ROLE:\n"
         "Product recommendation specialist focusing on specific requirements.\n\n"
         "TASK:\n"
-        "Find the cheapest Raspberry Pi Pico board that has wireless capabilities.\n\n"
+        "Find the product that best fits the user request.\n\n"
         "INPUT:\n"
         "- JSON array of products\n"
         "- User request with specific requirements\n\n"
